@@ -1,39 +1,36 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Platform } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import Person from './Person';
 
 
+const styles = StyleSheet.create({
+  bigBlue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30
+  },
+
+  red: {
+    color: 'red'
+  },
+
+  body:{
+    height: 300,
+    width: 300,
+    backgroundColor: 'green'
+  }
+
+});
+
+
 export default class App extends Component{
-  constructor(props){
-    super(props)
-    this.state={
-      name: "Saif Ullah",
-      email: "saif@gmail.com"
-    }
-  }
-
-  change(name, email){
-    this.setState({
-      name: name,
-      email: email
-    })
-
-    console.log(this.state);
-  }
-
-  
-  
-  
-
   render(){
     return(
-      <View style={{marginTop: 20}}>
-        <Text>Name: {this.state.name}</Text>
-        <Text>Email: {this.state.email}</Text>
-
-        <TouchableOpacity onPress={() => this.change('Mukta','mukta@gmail.com')}>
-          <Text>Change</Text>
-        </TouchableOpacity>
+      <View>
+        <Text style={styles.red}>just red</Text>
+        <Text style={styles.bigBlue}>just bigBlue</Text>
+        <Text style={[styles.bigBlue, styles.red]}>bigBlue, then red</Text>
+        <Text style={[styles.red, styles.bigBlue]}>red, then bigBlue</Text>
       </View>
     )
   }
